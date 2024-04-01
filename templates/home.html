@@ -1,12 +1,136 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>
-        HOME PAGE
-    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML WebApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+    
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>
-        This is home page
-    </h1>
+    <div class="container">
+        <h1>Boston House Price Prediction</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <div>
+                <label for="crim">CRIM:</label>
+                <input type="text" name="crim" id="crim" required="required">
+            </div>
+            <br>
+            <div>
+                <label for="zn">ZN:</label>
+                <input type="text" name="zn" id="zn" required="required">
+            </div>
+            <br>
+            <div>
+                <label for="indus">INDUS:</label>
+                <input type="text" name="indus" id="indus" required="required">
+            </div>
+            <br>
+            <div>
+                <label for="chas">CHAS:</label>
+                <input type="text" name="chas" id="chas" required="required">
+            </div>
+            <br>
+            <div>
+                <label for="nox">NOX:</label>
+                <input type="text" name="nox" id="nox" required="required">
+            </div>
+            <br>
+            <div>
+                <label for="rm">RM:</label>
+                <input type="text" name="rm" id="rm" required="required">
+            </div>
+            <br>
+            <div>
+                <label for="age">AGE:</label>
+                <input type="text" name="age" id="age" required="required">
+            </div>
+            <br>
+            <div>
+                <label for="dis">DIS:</label>
+                <input type="text" name="dis" id="dis" required="required">
+            </div>
+            <br>
+            <div>
+                <label for="rad">RAD:</label>
+                <input type="text" name="rad" id="rad" required="required">
+            </div>
+            <br>
+            <div>
+                <label for="tax">TAX:</label>
+                <input type="text" name="tax" id="tax" required="required">
+            </div>
+            <br>
+            <div>
+                <label for="ptratio">PTRATIO:</label>
+                <input type="text" name="ptratio" id="ptratio" required="required">
+            </div>
+            <br>
+            <div>
+                <label for="b">B:</label>
+                <input type="text" name="b" id="b" required="required">
+            </div>
+            <br>
+            <div>
+                <label for="lstat">LSTAT:</label>
+                <input type="text" name="lstat" id="lstat" required="required">
+            </div>
+            <br>
+            <br>
+            <div>
+                <input type="submit" value="Predict">
+            </div>
+        </form>
+        <br>
+        <br>
+        <div>
+            {{prediction_text}}
+        </div>
+    </div>
+
 </body>
-<html>
+</html>

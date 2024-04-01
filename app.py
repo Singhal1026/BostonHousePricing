@@ -23,6 +23,14 @@ def predict_api():
     print(prediction[0])
     return jsonify(prediction[0])
 
+@app.route('/predict', methods = ['POST'])
+def predict():
+    data = np.array([float(x) for x in request.form.values()])
+    new_data = scaler.transform(data.reshape(1, -1))
+    prediction = regmodel.predict(new_data)
+    return render_template('home.html', prediction_text = 'The predicted price is {}'.format(prediction[0]))
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
