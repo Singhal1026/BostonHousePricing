@@ -17,3 +17,7 @@ conda create -p venv python==3.7 -y
 ```
 conda activate venv/
 ```
+
+## Access the Application
+
+You can access the deployed application at the following [URL](https://bostonhousepricing-1-kb8j.onrender.com):
